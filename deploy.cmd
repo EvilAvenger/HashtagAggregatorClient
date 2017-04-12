@@ -25,9 +25,30 @@ SET ARTIFACTS=%~dp0%..\artifacts
 :: IF NOT DEFINED DEPLOYMENT_SOURCE (
  ::  SET DEPLOYMENT_SOURCE=%~dp0%.
 :: )
-echo on
-SET DEPLOYMENT_SOURCE=%~dp0%frontend\.
+
+
+
+
+
+@echo on
+
+echo Started
+
+SET DEPLOYMENT_SOURCE=%~dp0%frontend\dist\.
 echo %DEPLOYMENT_SOURCE%
+
+
+SET CURRENT_PATH=%~dp0
+SET BUILD_PATH=%~dp0%frontend\.
+
+cd %BUILD_PATH%
+
+call npm run build:prod
+
+cd %CURRENT_PATH=%
+
+echo Finished
+
 
 IF NOT DEFINED DEPLOYMENT_TARGET (
   SET DEPLOYMENT_TARGET=%ARTIFACTS%\wwwroot\frontend
@@ -111,19 +132,8 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
-
-echo Handling Angular build 
+ 
   
-:: 4. Build ng app
-IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
-  pushd "%DEPLOYMENT_TARGET%"
-  call :ExecuteCmd "!NODE_EXE!" ./node_modules/@angular/cli/bin/ng build --prod --env=prod --aot
-  :: the next line is optional to fix 404 error see section #8
-  call :ExecuteCmd cp "%DEPLOYMENT_TARGET%"/web.config "%DEPLOYMENT_TARGET%"/dist/
-  IF !ERRORLEVEL! NEQ 0 goto error
-  popd
-)
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
 
