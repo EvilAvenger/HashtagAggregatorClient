@@ -5,19 +5,24 @@ import { MessageComponent } from './messages-list/message/message.component';
 import { HomeComponent } from './home.component';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import {Ng2FilterPipeModule} from "ng2-filter-pipe";
+import {HashtagSelectorComponent} from "./hashtag-selector/hashtag-selector.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
         HomeComponent,
         MessageComponent,
-        MessagesListComponent
+        MessagesListComponent,
+        HashtagSelectorComponent
     ],
     imports: [
         CommonModule,
         LazyLoadImageModule,
-        Ng2FilterPipeModule
+        Ng2FilterPipeModule,
+        FormsModule
     ],
     providers: [
+
     ]
 })
 export class HomeModule {

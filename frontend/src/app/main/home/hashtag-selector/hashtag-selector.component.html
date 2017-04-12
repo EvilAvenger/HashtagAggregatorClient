@@ -1,0 +1,3 @@
+<select [(ngModel)]="selectedValue" (change)="onChange($event.target.value)">
+  <option *ngFor="let tag of tags" [value]="tag.hashTag">{{tag.hashTag}}</option>
+</select>

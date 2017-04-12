@@ -12,7 +12,6 @@ import {SearchService} from "../../shared/services/search.service";
 
 @Component({
   selector: 'messages-list',
-  providers: [MessageService],
   templateUrl: 'messages-list.component.html',
   styleUrls: ['messages-list.component.scss']
 })
@@ -30,16 +29,15 @@ export class MessagesListComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
 
-    this.messageSubscription = this.messageService.getData()
-      .subscribe(
-        messages => this.messages = messages
-      );
+     this.messageSubscription = this.messageService
+       .messageFilterChanged$.subscribe(
+         tag=> this.messageService.getData(tag).subscribe(messages => this.messages = messages))
 
-    this.searchService.searchConfirmed$
-      .subscribe(text=> this.fillSearch(text));
+
+    this.searchService.searchConfirmed$.subscribe(text => this.fillSearch(text));
   }
 
-  private fillSearch(text: string){
+  private fillSearch(text: string) {
     let message: Message = new Message();
     message.body = text;
 

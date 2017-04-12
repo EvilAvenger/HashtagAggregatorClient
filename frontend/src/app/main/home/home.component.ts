@@ -15,13 +15,11 @@ import { MessageService } from './shared/message.service';
   ],
 })
 export class HomeComponent implements OnInit {
-  public localState = { value: '' };
 
-  constructor(public appState: AppState, public messageService: MessageService) {
+  constructor(public appState: AppState) {
 
   }
 
   public ngOnInit() {
   }
-
 }
