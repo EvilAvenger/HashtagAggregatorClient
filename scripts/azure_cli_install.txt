@@ -1,0 +1,4 @@
+npm install azure-cli -g
+
+# after installation
+azure config mode asm
