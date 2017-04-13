@@ -5,15 +5,15 @@ import { MessageComponent } from './messages-list/message/message.component';
 import { HomeComponent } from './home.component';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import {Ng2FilterPipeModule} from "ng2-filter-pipe";
-import {HashtagSelectorComponent} from "./hashtag-selector/hashtag-selector.component";
+
 import {FormsModule} from "@angular/forms";
+import {MessageService} from "./shared/message.service";
 
 @NgModule({
     declarations: [
         HomeComponent,
         MessageComponent,
-        MessagesListComponent,
-        HashtagSelectorComponent
+        MessagesListComponent
     ],
     imports: [
         CommonModule,
@@ -22,7 +22,7 @@ import {FormsModule} from "@angular/forms";
         FormsModule
     ],
     providers: [
-
+      MessageService
     ]
 })
 export class HomeModule {

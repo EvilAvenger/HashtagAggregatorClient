@@ -9,18 +9,12 @@ import {StorageService} from "./shared/services/storage.service";
 import {AppConfigService} from "./shared/services/config/app-config.service";
 import {TranslateModule} from "@ngx-translate/core";
 import {RouterModule} from '@angular/router';
-
-import {NavbarComponent, HeaderComponent} from "./header";
-import {Collapse} from "./header/navbar/navbar-collapse.directive";
-import {Ng2FilterPipeModule} from "ng2-filter-pipe";
-import { ReactiveFormsModule , FormsModule } from "@angular/forms";
+import {HeaderModule} from "./header/header.module";
+import {HeaderComponent} from "./header/header.component";
 
 @NgModule({
   declarations: [
-    MainComponent,
-    NavbarComponent,
-    HeaderComponent,
-    Collapse
+    MainComponent
   ],
   imports: [
     CommonModule,
@@ -29,9 +23,8 @@ import { ReactiveFormsModule , FormsModule } from "@angular/forms";
     LoginModule,
     HomeModule,
     TranslateModule,
-    ReactiveFormsModule,
-    FormsModule,
-    RouterModule
+    RouterModule,
+    HeaderModule
   ],
   providers:[
     AppConfigService,
