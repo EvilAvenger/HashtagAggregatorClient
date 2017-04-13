@@ -12,9 +12,9 @@ export class HashTagService {
   constructor(private http: Http, private  configService: AppConfigService) {
   }
 
-  public getData(): Observable<HashTag[]> {
-    let hashtag = this.configService.getApp<string>("hashtag");
-    let uri = this.configService.getApp<string>("apiEndpoint") + "hashtag";
+  public getData(parentTag : string): Observable<HashTag[]> {
+
+    let uri = this.configService.getApp<string>("apiEndpoint") + `hashtag/children/${parentTag}`;
 
     return this.http.get(uri)
       .map(hashtags => this.getHashtags(hashtags))

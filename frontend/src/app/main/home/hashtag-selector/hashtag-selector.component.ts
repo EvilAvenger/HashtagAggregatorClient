@@ -1,35 +1,52 @@
 import {
   Component,
-  OnInit, OnDestroy, Input
+  OnInit, OnDestroy, Input, ViewChild, ElementRef, ViewEncapsulation
 } from '@angular/core';
 import {AppState} from "../../../app.service";
 import {HashTag} from "../../shared/models/hashtag";
 import {HashTagService} from "../shared/hashtag.service";
 import {Subscription} from "rxjs";
 import {MessageService} from "../shared/message.service";
+import {AppConfigService} from "../../shared/services/config/app-config.service";
 
 @Component({
   selector: 'hashtag-selector',
   styleUrls: ['hashtag-selector.component.scss'],
   templateUrl: 'hashtag-selector.component.html',
+
+  encapsulation: ViewEncapsulation.None,
   providers: [HashTagService]
 })
 export class HashtagSelectorComponent implements OnInit, OnDestroy {
 
-  @Input() private selectedValue: HashTag;
+  @ViewChild('hashSelect') hashSelect: ElementRef;
+  @Input() private selectedValue: string;
+
   private hashtagSubscription: Subscription;
   private tags: HashTag[];
 
   constructor(public appState: AppState,
               private hashTagService: HashTagService,
-              private messageService: MessageService) {
+              private messageService: MessageService,
+              private  configService: AppConfigService) {
   }
 
   public ngOnInit(): void {
 
+    let parentTag = this.configService.getApp<string>("hashtag");
     this.hashtagSubscription =
-      this.hashTagService.getData()
-        .subscribe(tags => this.tags = tags);
+      this.hashTagService.getData(parentTag)
+        .subscribe(tags => this.setSelected(tags));
+  }
+
+  private setSelected(tags: HashTag[]): void {
+    this.tags = tags;
+    this.selectedValue = tags[0].hashTag;
+    this.messageService.changeHashTag(this.selectedValue);
+  }
+
+  private trackByFn(index, item): number {
+    return item.id;
   }
 
   public ngOnDestroy(): void {

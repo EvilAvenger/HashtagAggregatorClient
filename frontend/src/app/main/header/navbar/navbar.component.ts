@@ -19,6 +19,7 @@ export class NavbarComponent implements OnDestroy, OnInit {
 
   private searchBoxControl = new FormControl();
   private subscription: Subscription;
+  private debounceTime: number = 400;
 
   constructor(private configService: AppConfigService, private searchService: SearchService) {
 
@@ -27,7 +28,7 @@ export class NavbarComponent implements OnDestroy, OnInit {
   public ngOnInit(): void {
     this.subscription =
       this.searchBoxControl.valueChanges
-        .debounceTime(400)
+        .debounceTime(this.debounceTime)
         .distinctUntilChanged()
         .subscribe(text => this.searchService.confirmSearch(text));
   }

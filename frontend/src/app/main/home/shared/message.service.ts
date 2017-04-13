@@ -16,14 +16,10 @@ export class MessageService {
   }
 
   public getData(value: string): Observable<Message[]> {
-    console.log("hereeee");
-    console.log(value);
-    let uri = this.configService.getApp<string>("apiEndpoint") + `statistics/${value.substring(1)}`;
-
-    console.log(uri);
-    return this.http.get(uri)
-      .map(messages => this.getMappedMessage(messages))
-      .share();
+      let uri = this.configService.getApp<string>("apiEndpoint") + `statistics/${value.substring(1)}`;
+      return this.http.get(uri)
+        .map(messages => this.getMappedMessage(messages))
+        .share();
   }
 
   public changeHashTag(tag: string) {

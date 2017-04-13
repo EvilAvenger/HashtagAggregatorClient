@@ -6,7 +6,7 @@ import {
 
 import {AppState} from '../../../app.service';
 import {Message} from '../shared/models/message';
-import {Subscription, Subject} from "rxjs";
+import {Subscription} from "rxjs";
 import {MessageService} from "../shared/message.service";
 import {SearchService} from "../../shared/services/search.service";
 
@@ -29,10 +29,9 @@ export class MessagesListComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
 
-     this.messageSubscription = this.messageService
-       .messageFilterChanged$.subscribe(
-         tag=> this.messageService.getData(tag).subscribe(messages => this.messages = messages))
-
+    this.messageSubscription = this.messageService
+      .messageFilterChanged$.subscribe(
+        tag => this.messageService.getData(tag).subscribe(messages => this.messages = messages));
 
     this.searchService.searchConfirmed$.subscribe(text => this.fillSearch(text));
   }
