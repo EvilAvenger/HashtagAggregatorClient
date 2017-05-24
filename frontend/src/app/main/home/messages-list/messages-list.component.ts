@@ -31,9 +31,9 @@ export class MessagesListComponent implements OnInit, OnDestroy {
 
     this.messageSubscription = this.messageService
       .messageFilterChanged$.subscribe(
-        tag => this.messageService.getData(tag).subscribe(messages => this.messages = messages));
+        (tag) => this.messageService.getData(tag).subscribe((messages) => this.messages = messages));
 
-    this.searchService.searchConfirmed$.subscribe(text => this.fillSearch(text));
+    this.searchService.searchConfirmed$.subscribe((text) => this.fillSearch(text));
   }
 
   private fillSearch(text: string) {

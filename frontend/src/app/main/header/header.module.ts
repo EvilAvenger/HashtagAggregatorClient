@@ -24,7 +24,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     FormsModule,
   ],
-  exports:[
+  exports: [
     HeaderComponent
   ]
 })

@@ -25,13 +25,13 @@ export class CallbackParseService {
     if (!result.error) {
 
         let accessToken = new Token();
-        accessToken.name = this.configService.getApp<string>("accessTokenName");
+        accessToken.name = this.configService.getApp<string>('accessTokenName');
         accessToken.value = result.access_token;
 
-      let identityToken = new Token();
-      identityToken.name = this.configService.getApp<string>("idTokenName");
-      identityToken.value = result.id_token;
-      tokens = [ identityToken, accessToken ];
+        let identityToken = new Token();
+        identityToken.name = this.configService.getApp<string>('idTokenName');
+        identityToken.value = result.id_token;
+        tokens = [ identityToken, accessToken ];
     }
     return tokens;
   }

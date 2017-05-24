@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import {Message} from "./models/message"
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/share";
+import {Message} from './models/message';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/share';
 import { Observable, Subject } from 'rxjs';
 import { AppConfigService } from '../../shared/services/config/app-config.service';
 
@@ -16,9 +16,9 @@ export class MessageService {
   }
 
   public getData(value: string): Observable<Message[]> {
-      let uri = this.configService.getApp<string>("apiEndpoint") + `statistics/${value.substring(1)}`;
+      let uri = this.configService.getApp<string>('apiEndpoint') + `statistics/${value.substring(1)}`;
       return this.http.get(uri)
-        .map(messages => this.getMappedMessage(messages))
+        .map((messages) => this.getMappedMessage(messages))
         .share();
   }
 
@@ -27,7 +27,7 @@ export class MessageService {
   }
 
   private getMappedMessage(message: any): Message[] {
-    let messages = <Message[]>message.json();
+    let messages = <Message[]> message.json();
     messages.sort((first, second) => first.postDate < second.postDate ? 1 : -1);
     return messages;
   }

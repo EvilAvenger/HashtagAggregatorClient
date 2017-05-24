@@ -7,7 +7,7 @@ export class CanActivateViaAuthGuard implements CanActivate {
   constructor() {}
 
   canActivate() {
-    console.log("Activated root");
+    console.log('Activated root');
     return true;
   }
 }

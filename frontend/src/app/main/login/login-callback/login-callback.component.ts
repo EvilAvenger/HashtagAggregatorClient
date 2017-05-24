@@ -28,10 +28,10 @@ export class LoginCallbackComponent implements  OnInit{
   ngOnInit(): void {
     let result : Token[] = this.callbackParse.parseUrl(window.location.hash.substr(1));
 
-     for(let token of result){
+    for (let token of result){
        this.saveToken(token);
      }
-    this.router.navigate(["main"])
+    this.router.navigate(['main']);
   }
 
   private saveToken(token : Token): void {

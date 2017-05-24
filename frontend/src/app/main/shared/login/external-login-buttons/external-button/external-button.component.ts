@@ -21,7 +21,7 @@ export class ExternalButtonComponent  {
   }
 
   public send(returnUrl: string, scheme: string) {
-      console.log("send");
+      console.log('send');
       console.log(returnUrl);
       console.log(scheme);
       this.loginService.externalLogIn(returnUrl, scheme);

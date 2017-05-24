@@ -23,7 +23,7 @@ export class AuthSectionComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.loggingSubscription = this.authService.isLoggedIn()
-        .subscribe(logged => this.isLoggedIn = logged);
+        .subscribe((logged) => this.isLoggedIn = logged);
   }
 
   public ngOnDestroy(): void {

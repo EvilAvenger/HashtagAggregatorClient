@@ -27,7 +27,7 @@ export class MessageComponent implements OnInit {
   }
 
   public ngOnInit() {
-    let avatarLink: string = this.configService.getApp<string>("defaultAvatar");
+    let avatarLink: string = this.configService.getApp<string>('defaultAvatar');
     this.defaultImage = avatarLink;
   }
 
@@ -35,13 +35,13 @@ export class MessageComponent implements OnInit {
     let uri: string = null;
 
     if (message.mediaType == MediaType.VK) {
-      uri = this.configService.getVk<string>("vkMessageUri");
-      uri = uri.replace("{user}", message.user.profileId)
-        .replace("{userId}", message.user.networkId)
-        .replace("{networkId}", message.networkId);
+      uri = this.configService.getVk<string>('vkMessageUri');
+      uri = uri.replace('{user}', message.user.profileId)
+        .replace('{userId}', message.user.networkId)
+        .replace('{networkId}', message.networkId);
     }
     else {
-      uri = this.configService.getTwitter<string>("twitterMessageUri");
+      uri = this.configService.getTwitter<string>('twitterMessageUri');
       uri = message.user.url;
     }
 

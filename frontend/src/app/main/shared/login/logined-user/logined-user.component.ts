@@ -27,10 +27,10 @@ export class LoginedUserComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    let accessTokenName = this.configService.getApp<string>("accessTokenName");
+    let accessTokenName = this.configService.getApp<string>('accessTokenName');
     let accessToken : Token = this.storageSerivce.getTokenValueByName(accessTokenName);
 
-    if(accessToken != null){
+    if (accessToken != null){
       let jwt = this.jwtHelper.decodeToken(accessToken.value);
       this.userName = jwt.name;
     }

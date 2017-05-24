@@ -24,4 +24,3 @@ export const PROVIDERS = [
     ...CONFIGURATION_PROVIDERS,
     ...APP_ROUTER_PROVIDERS
 ];
-

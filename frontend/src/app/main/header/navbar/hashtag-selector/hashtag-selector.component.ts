@@ -33,10 +33,10 @@ export class HashtagSelectorComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
 
-    let parentTag = this.configService.getApp<string>("hashtag");
+    let parentTag = this.configService.getApp<string>('hashtag');
     this.hashtagSubscription =
       this.hashTagService.getData(parentTag)
-        .subscribe(tags => this.setSelected(tags));
+        .subscribe((tags) => this.setSelected(tags));
   }
 
   private setSelected(tags: HashTag[]): void {

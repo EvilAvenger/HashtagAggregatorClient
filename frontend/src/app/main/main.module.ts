@@ -26,7 +26,7 @@ import { HeaderComponent } from './header/header.component';
     RouterModule,
     HeaderModule
   ],
-  providers:[
+  providers: [
     AppConfigService,
     StorageService
   ]

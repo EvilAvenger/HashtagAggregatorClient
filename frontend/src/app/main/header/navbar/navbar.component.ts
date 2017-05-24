@@ -30,11 +30,10 @@ export class NavbarComponent implements OnDestroy, OnInit {
       this.searchBoxControl.valueChanges
         .debounceTime(this.debounceTime)
         .distinctUntilChanged()
-        .subscribe(text => this.searchService.confirmSearch(text));
+        .subscribe((text) => this.searchService.confirmSearch(text));
   }
 
   public ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 }
-

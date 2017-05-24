@@ -18,4 +18,3 @@ export class AppComponent{
       translate.use('en');
   }
 }
-

@@ -31,7 +31,7 @@ export class ExternalLoginButtonsComponent implements OnInit, OnDestroy {
       .subscribe(
         (loginData) => {
             this.loginData = loginData;
-            this.externalProviders = loginData.externalProviders}
+            this.externalProviders = loginData.externalProviders; }
       );
   }
 

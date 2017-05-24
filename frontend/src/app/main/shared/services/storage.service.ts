@@ -10,7 +10,7 @@ export class StorageService {
   private tokenTracker = new Subject<Token>();
 
   constructor(private http: Http, private configService: AppConfigService) {
-      console.log("constructor storage");
+      console.log('constructor storage');
   }
 
   public tokenSaved(): Observable<Token> {
@@ -18,9 +18,9 @@ export class StorageService {
   }
 
   private initAuth() : Token{
-    let name = this.configService.getApp<string>("accessTokenName");
+    let name = this.configService.getApp<string>('accessTokenName');
     let token = this.getTokenValueByName(name);
-    if(token == null){
+    if (token == null){
         token = new Token();
         token.name = name;
         token.saved = false;
@@ -42,7 +42,7 @@ export class StorageService {
     localStorage.removeItem(name);
 
     let token = new Token();
-    token.name= name;
+    token.name = name;
     token.value = value;
     token.saved = false;
 
@@ -54,7 +54,7 @@ export class StorageService {
     let tokenValue = localStorage.getItem(name);
     let token : Token  = null;
 
-    if(tokenValue != null){
+    if (tokenValue != null){
       token = new Token();
       token.value = tokenValue;
       token.name = name;
