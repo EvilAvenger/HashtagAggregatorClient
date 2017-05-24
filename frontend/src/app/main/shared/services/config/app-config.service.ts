@@ -1,4 +1,4 @@
-import { Injectable, Inject } from "@angular/core";
+import { Injectable, Inject } from '@angular/core';
 import {
   APP_CONFIG_TOKEN, AppConfig,
   VK_CONFIG_TOKEN, VkConfig, TWI_CONFIG_TOKEN, TwiConfig,

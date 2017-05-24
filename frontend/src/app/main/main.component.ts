@@ -3,9 +3,9 @@ import {
   ViewEncapsulation, OnInit
 } from '@angular/core';
 
-import {TranslateService} from '@ngx-translate/core';
-import {AppConfigService} from "./shared/services/config/app-config.service";
-import {SearchService} from "./shared/services/search.service";
+import { TranslateService } from '@ngx-translate/core';
+import { AppConfigService } from './shared/services/config/app-config.service';
+import { SearchService } from './shared/services/search.service';
 
 @Component({
   selector: 'main-page',

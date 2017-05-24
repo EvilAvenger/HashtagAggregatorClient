@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import {Http} from "@angular/http";
-import {AppConfigService} from "./config/app-config.service";
-import {Subject, Observable} from "rxjs";
-import {Token} from "../models/token.model";
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { AppConfigService } from './config/app-config.service';
+import { Subject, Observable } from 'rxjs';
+import { Token } from '../models/token.model';
 
 @Injectable()
 export class StorageService {

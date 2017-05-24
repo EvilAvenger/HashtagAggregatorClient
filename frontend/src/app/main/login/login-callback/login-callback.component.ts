@@ -1,11 +1,11 @@
 import {
   Component, OnInit
 } from '@angular/core';
-import {Router} from "@angular/router";
-import {StorageService} from "../../shared/services/storage.service";
-import {CallbackParseService} from "../callback-parse.service";
-import {AppConfigService} from "../../shared/services/config/app-config.service";
-import {Token} from "../../shared/models/token.model";
+import { Router } from '@angular/router';
+import { StorageService } from '../../shared/services/storage.service';
+import { CallbackParseService } from '../callback-parse.service';
+import { AppConfigService } from '../../shared/services/config/app-config.service';
+import { Token } from '../../shared/models/token.model';
 
 @Component({
   selector: 'login-callback',

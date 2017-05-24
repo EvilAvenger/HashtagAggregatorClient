@@ -4,11 +4,11 @@ import {
   OnDestroy
 } from '@angular/core';
 
-import {AppState} from '../../../app.service';
-import {Message} from '../shared/models/message';
-import {Subscription} from "rxjs";
-import {MessageService} from "../shared/message.service";
-import {SearchService} from "../../shared/services/search.service";
+import { AppState } from '../../../app.service';
+import { Message } from '../shared/models/message';
+import { Subscription } from 'rxjs';
+import { MessageService } from '../shared/message.service';
+import { SearchService } from '../../shared/services/search.service';
 
 @Component({
   selector: 'messages-list',

@@ -3,8 +3,8 @@ import {
   Input,
 } from '@angular/core';
 
-import {ExternalProviderData} from "../../../models/external-login-provider";
-import {ExternalLoginService} from "../../services/external-login.service";
+import { ExternalProviderData } from '../../../models/external-login-provider';
+import { ExternalLoginService } from '../../services/external-login.service';
 
 @Component({
   selector: 'external-button',

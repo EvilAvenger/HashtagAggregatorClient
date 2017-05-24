@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import {AppConfigService} from "./config/app-config.service";
-import {StorageService} from "./storage.service";
-import {Token} from "../models/token.model";
-import {Observable} from "rxjs";
-import {JwtHelper} from "angular2-jwt";
+import { Injectable } from '@angular/core';
+import { AppConfigService } from './config/app-config.service';
+import { StorageService } from './storage.service';
+import { Token } from '../models/token.model';
+import { Observable } from 'rxjs';
+import { JwtHelper } from 'angular2-jwt';
 
 @Injectable()
 export class AuthService{

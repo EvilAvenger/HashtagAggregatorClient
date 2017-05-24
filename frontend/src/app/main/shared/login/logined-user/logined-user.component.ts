@@ -2,12 +2,12 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
-import {AppState} from "../../../../app.service";
-import {Token} from "../../models/token.model";
-import {StorageService} from "../../services/storage.service";
-import {AppConfigService} from "../../services/config/app-config.service";
-import {JwtHelper} from "angular2-jwt";
-import {AuthService} from "../../services/auth.service";
+import { AppState } from '../../../../app.service';
+import { Token } from '../../models/token.model';
+import { StorageService } from '../../services/storage.service';
+import { AppConfigService } from '../../services/config/app-config.service';
+import { JwtHelper } from 'angular2-jwt';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'logined-user',

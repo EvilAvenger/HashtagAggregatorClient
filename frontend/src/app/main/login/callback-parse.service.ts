@@ -1,7 +1,7 @@
-import {Injectable} from "@angular/core";
-import {Http} from '@angular/http';
-import {Token} from "../shared/models/token.model";
-import {AppConfigService} from "../shared/services/config/app-config.service";
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Token } from '../shared/models/token.model';
+import { AppConfigService } from '../shared/services/config/app-config.service';
 
 @Injectable()
 export class CallbackParseService {

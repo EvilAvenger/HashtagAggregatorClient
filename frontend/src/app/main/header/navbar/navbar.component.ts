@@ -3,10 +3,10 @@ import {
   ViewEncapsulation, OnInit, EventEmitter, Output, OnDestroy
 } from '@angular/core';
 
-import {AppConfigService} from "../../shared/services/config/app-config.service";
-import {FormControl} from "@angular/forms";
-import {SearchService} from "../../shared/services/search.service";
-import {Subscription} from "rxjs";
+import { AppConfigService } from '../../shared/services/config/app-config.service';
+import { FormControl } from '@angular/forms';
+import { SearchService } from '../../shared/services/search.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'site-nav',

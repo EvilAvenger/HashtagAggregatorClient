@@ -1,4 +1,4 @@
-import {ExternalProviderData} from "./external-login-provider";
+import { ExternalProviderData } from './external-login-provider';
 
 export class LoginData {
   rememberMe: boolean;

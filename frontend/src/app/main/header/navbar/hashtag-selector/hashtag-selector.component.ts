@@ -2,12 +2,12 @@ import {
   Component,
   OnInit, OnDestroy, Input, ViewChild, ElementRef, ViewEncapsulation
 } from '@angular/core';
-import {HashTagService} from "../../../home/shared/hashtag.service";
-import {AppState} from "../../../../app.service";
-import {HashTag} from "../../../shared/models/hashtag";
-import {Subscription} from "rxjs";
-import {AppConfigService} from "../../../shared/services/config/app-config.service";
-import {MessageService} from "../../../home/shared/message.service";
+import { HashTagService } from '../../../home/shared/hashtag.service';
+import { AppState } from '../../../../app.service';
+import { HashTag } from '../../../shared/models/hashtag';
+import { Subscription } from 'rxjs';
+import { AppConfigService } from '../../../shared/services/config/app-config.service';
+import { MessageService } from '../../../home/shared/message.service';
 
 @Component({
   selector: 'hashtag-selector',

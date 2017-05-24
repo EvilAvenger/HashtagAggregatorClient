@@ -1,10 +1,10 @@
-import {Injectable} from "@angular/core";
-import {Http, URLSearchParams, Response, RequestOptions} from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http, URLSearchParams, Response, RequestOptions } from '@angular/http';
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/share";
-import {Observable} from "rxjs";
-import {LoginData} from "../../models/login-data";
-import {AppConfigService} from "../../services/config/app-config.service";
+import { Observable } from 'rxjs';
+import { LoginData } from '../../models/login-data';
+import { AppConfigService } from '../../services/config/app-config.service';
 
 @Injectable()
 export class ExternalLoginService {

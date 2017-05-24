@@ -1,11 +1,11 @@
-import {Injectable} from "@angular/core";
-import {Http} from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/share";
-import {Observable} from "rxjs";
-import {AppConfigService} from "../../shared/services/config/app-config.service";
-import {HashTag} from "../../shared/models/hashtag";
-import {$} from "protractor";
+import { Observable } from 'rxjs';
+import { AppConfigService } from '../../shared/services/config/app-config.service';
+import { HashTag } from '../../shared/models/hashtag';
+import { $ } from 'protractor';
 
 @Injectable()
 export class HashTagService {
