@@ -1,10 +1,10 @@
-import {Injectable} from "@angular/core";
-import {Http, URLSearchParams, Response, RequestOptions} from '@angular/http';
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/share";
-import {Observable} from "rxjs";
-import {LoginData} from "../../models/login-data";
-import {AppConfigService} from "../../services/config/app-config.service";
+import { Injectable } from '@angular/core';
+import { Http, URLSearchParams, Response, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/share';
+import { Observable } from 'rxjs';
+import { LoginData } from '../../models/login-data';
+import { AppConfigService } from '../../services/config/app-config.service';
 
 @Injectable()
 export class ExternalLoginService {
@@ -14,35 +14,35 @@ export class ExternalLoginService {
   }
 
   public getExternalLogins(): Observable<LoginData> {
-    let uri = this.configService.getApp<string>("loginApiEndpoint") + 'account/login';
+    let uri = this.configService.getApp<string>('loginApiEndpoint') + 'account/login';
 
     let params = new URLSearchParams();
     params.set('returnUrl',  this.getReturnURL());
     let requestOptions = new RequestOptions();
     requestOptions.search = params;
 
-    console.log("getExternalLogins");
+    console.log('getExternalLogins');
     console.log(uri);
 
     return this.http.get(uri, requestOptions)
-      .map(data => this.getLogins(data))
+      .map((data) => this.getLogins(data))
       .catch(this.handleError).share();
   }
 
   public externalLogIn(returnUrl: string, scheme: string): void {
     let url = encodeURIComponent(returnUrl);
-    let uri = this.configService.getApp<string>("loginApiEndpoint") + 'account/externallogin/';
-    uri = uri + '?' + 'provider='  + encodeURIComponent(scheme)+ '&' + 'returnUrl=' + url;
+    let uri = this.configService.getApp<string>('loginApiEndpoint') + 'account/externallogin/';
+    uri = uri + '?' + 'provider='  + encodeURIComponent(scheme) + '&' + 'returnUrl=' + url;
 
-    console.log("externalLogIn");
+    console.log('externalLogIn');
     console.log(uri);
 
     window.location.href = uri;
   }
 
   private getReturnURL() : string {
-    let clientId = this.configService.getApp<string>("clientId");
-    let loginApiEndpoint = this.configService.getApp<string>("loginApiEndpoint");
+    let clientId = this.configService.getApp<string>('clientId');
+    let loginApiEndpoint = this.configService.getApp<string>('loginApiEndpoint');
 
     let redirect_uri = `${location.origin}/login-callback`;
     let authorizationUrl = '/connect/authorize/login';

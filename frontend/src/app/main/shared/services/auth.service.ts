@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import {AppConfigService} from "./config/app-config.service";
-import {StorageService} from "./storage.service";
-import {Token} from "../models/token.model";
-import {Observable} from "rxjs";
-import {JwtHelper} from "angular2-jwt";
+import { Injectable } from '@angular/core';
+import { AppConfigService } from './config/app-config.service';
+import { StorageService } from './storage.service';
+import { Token } from '../models/token.model';
+import { Observable } from 'rxjs';
+import { JwtHelper } from 'angular2-jwt';
 
 @Injectable()
 export class AuthService{
@@ -13,13 +13,13 @@ export class AuthService{
   }
 
   public isLoggedIn() : Observable<boolean>{
-    return this.storageService.tokenSaved().map(token => this.isAuthorized(token));
+    return this.storageService.tokenSaved().map((token) => this.isAuthorized(token));
   }
 
   public logOut() {
-    let idTokenName = this.configService.getApp<string>("idTokenName");
+    let idTokenName = this.configService.getApp<string>('idTokenName');
     let token: Token = this.storageService.getTokenValueByName(idTokenName);
-    let authorizationUrl = this.configService.getApp<string>("loginApiEndpoint") + "connect/endsession";
+    let authorizationUrl = this.configService.getApp<string>('loginApiEndpoint') + 'connect/endsession';
 
     let url =
       authorizationUrl + '?' +
@@ -33,20 +33,20 @@ export class AuthService{
 
   public isAuthorized(token : Token): boolean {
 
-    console.log("isAuthorized");
+    console.log('isAuthorized');
     console.log(token);
 
     let isAuthorized: boolean = false;
     console.log(`Check: ${token}`);
 
-    let name = this.configService.getApp<string>("accessTokenName");
-    if(name === token.name){
+    let name = this.configService.getApp<string>('accessTokenName');
+    if (name === token.name){
       let expired = this.isTokenExpired(token);
 
-      if(token.saved && !expired){
+      if (token.saved && !expired){
         isAuthorized = true;
       }
-      if(expired){
+      if (expired){
         this.resetAuthData();
       }
     }
@@ -59,7 +59,7 @@ export class AuthService{
     let expired : boolean = true;
     offsetSeconds = offsetSeconds || 0;
 
-    if(token != null && token.value != null){
+    if (token != null && token.value != null){
       let expirationDate : Date = this.jwtHelper.getTokenExpirationDate(token.value);
       if (expirationDate == null) {
          expired = true;
@@ -72,8 +72,8 @@ export class AuthService{
   }
 
   private resetAuthData(){
-    let accessTokenName = this.configService.getApp<string>("accessTokenName");
-    let idTokenName = this.configService.getApp<string>("idTokenName");
+    let accessTokenName = this.configService.getApp<string>('accessTokenName');
+    let idTokenName = this.configService.getApp<string>('idTokenName');
 
     this.storageService.removeToken(accessTokenName);
     this.storageService.removeToken(idTokenName);

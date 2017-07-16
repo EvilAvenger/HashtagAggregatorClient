@@ -3,8 +3,8 @@ import {
   Input,
 } from '@angular/core';
 
-import {ExternalProviderData} from "../../../models/external-login-provider";
-import {ExternalLoginService} from "../../services/external-login.service";
+import { ExternalProviderData } from '../../../models/external-login-provider';
+import { ExternalLoginService } from '../../services/external-login.service';
 
 @Component({
   selector: 'external-button',
@@ -21,7 +21,7 @@ export class ExternalButtonComponent  {
   }
 
   public send(returnUrl: string, scheme: string) {
-      console.log("send");
+      console.log('send');
       console.log(returnUrl);
       console.log(scheme);
       this.loginService.externalLogIn(returnUrl, scheme);

@@ -1,6 +1,6 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import {LoginCallbackComponent} from "./login-callback/login-callback.component";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { LoginCallbackComponent } from './login-callback/login-callback.component';
 
 @NgModule({
   declarations: [

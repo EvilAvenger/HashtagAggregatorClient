@@ -3,7 +3,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 
-import {AppConfigService} from "../shared/services/config/app-config.service";
+import { AppConfigService } from '../shared/services/config/app-config.service';
 
 @Component({
   selector: 'site-header',
@@ -18,4 +18,3 @@ export class HeaderComponent{
 
   }
 }
-

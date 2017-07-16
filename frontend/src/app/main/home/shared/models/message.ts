@@ -1,5 +1,4 @@
-import { MediaType } from '../enums/social-media.enum'
-import {User} from "./user";
+import { User } from './user';
 
 export class Message {
     id : number;

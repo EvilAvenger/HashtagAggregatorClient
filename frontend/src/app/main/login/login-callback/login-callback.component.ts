@@ -1,11 +1,11 @@
 import {
   Component, OnInit
 } from '@angular/core';
-import {Router} from "@angular/router";
-import {StorageService} from "../../shared/services/storage.service";
-import {CallbackParseService} from "../callback-parse.service";
-import {AppConfigService} from "../../shared/services/config/app-config.service";
-import {Token} from "../../shared/models/token.model";
+import { Router } from '@angular/router';
+import { StorageService } from '../../shared/services/storage.service';
+import { CallbackParseService } from '../callback-parse.service';
+import { AppConfigService } from '../../shared/services/config/app-config.service';
+import { Token } from '../../shared/models/token.model';
 
 @Component({
   selector: 'login-callback',
@@ -28,10 +28,10 @@ export class LoginCallbackComponent implements  OnInit{
   ngOnInit(): void {
     let result : Token[] = this.callbackParse.parseUrl(window.location.hash.substr(1));
 
-     for(let token of result){
+    for (let token of result){
        this.saveToken(token);
      }
-    this.router.navigate(["main"])
+    this.router.navigate(['main']);
   }
 
   private saveToken(token : Token): void {

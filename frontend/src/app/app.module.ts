@@ -15,23 +15,21 @@ import {
   PreloadAllModules
 } from '@angular/router';
 
-
 import { ENV_PROVIDERS } from '../platform/environment';
-import { PROVIDERS } from "../platform/providers";
+import { PROVIDERS } from '../platform/providers';
 import { APP_ROUTES } from './app.routes';
 
 import { AppComponent } from './app.component';
 
 import { AppState, InternalStateType } from './app.service';
 
+import { HttpModule, Http } from '@angular/http';
 
-import { HttpModule, Http } from "@angular/http";
-
-import {TranslateModule, TranslateLoader, TranslatePipe} from '@ngx-translate/core'
+import {TranslateModule, TranslateLoader, TranslatePipe} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import {NotFoundComponent} from "./no-content/not-found.component";
-import {MainModule} from "./main/main.module";
+import { NotFoundComponent } from './no-content/not-found.component';
+import { MainModule } from './main/main.module';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';

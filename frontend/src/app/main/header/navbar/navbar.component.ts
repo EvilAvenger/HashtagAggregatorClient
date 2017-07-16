@@ -3,10 +3,10 @@ import {
   ViewEncapsulation, OnInit, EventEmitter, Output, OnDestroy
 } from '@angular/core';
 
-import {AppConfigService} from "../../shared/services/config/app-config.service";
-import {FormControl} from "@angular/forms";
-import {SearchService} from "../../shared/services/search.service";
-import {Subscription} from "rxjs";
+import { AppConfigService } from '../../shared/services/config/app-config.service';
+import { FormControl } from '@angular/forms';
+import { SearchService } from '../../shared/services/search.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'site-nav',
@@ -19,6 +19,7 @@ export class NavbarComponent implements OnDestroy, OnInit {
 
   private searchBoxControl = new FormControl();
   private subscription: Subscription;
+  private debounceTime: number = 400;
 
   constructor(private configService: AppConfigService, private searchService: SearchService) {
 
@@ -27,13 +28,12 @@ export class NavbarComponent implements OnDestroy, OnInit {
   public ngOnInit(): void {
     this.subscription =
       this.searchBoxControl.valueChanges
-        .debounceTime(400)
+        .debounceTime(this.debounceTime)
         .distinctUntilChanged()
-        .subscribe(text => this.searchService.confirmSearch(text));
+        .subscribe((text) => this.searchService.confirmSearch(text));
   }
 
   public ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 }
-
