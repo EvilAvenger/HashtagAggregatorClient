@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
-import { Observable } from 'rxjs';
-import { AppConfigService } from '../../shared/services/config/app-config.service';
-import { HashTag } from '../../shared/models/hashtag';
-import { $ } from 'protractor';
+import {Observable} from 'rxjs';
+import {AppConfigService} from '../../shared/services/config/app-config.service';
+import {HashTag} from '../../shared/models/hashtag';
+import {$} from 'protractor';
 
 @Injectable()
 export class HashTagService {
@@ -13,7 +13,7 @@ export class HashTagService {
   constructor(private http: Http, private  configService: AppConfigService) {
   }
 
-  public getData(parentTag : string): Observable<HashTag[]> {
+  public getData(parentTag: string): Observable<HashTag[]> {
 
     let uri = this.configService.getApp<string>('apiEndpoint') + `hashtag/children/${parentTag}`;
 
@@ -23,12 +23,14 @@ export class HashTagService {
   }
 
   private getHashtags(hashtags: any): HashTag[] {
-    console.log(hashtags);
 
     let tags = <HashTag[]> hashtags.json();
-    for (let i = 0; i < tags.length; i++){
-       tags[i].hashTag = `${tags[i].hashTag}`;
-     }
-    return tags.filter((x) => x.isEnabled);
+    if (tags) {
+      for (let i = 0; i < tags.length; i++) {
+        tags[i].hashTag = `${tags[i].hashTag}`;
+      }
+      tags = tags.filter((x) => x.isEnabled);
+    }
+    return tags;
   }
 }

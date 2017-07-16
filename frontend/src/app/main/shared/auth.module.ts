@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { Http, RequestOptions } from '@angular/http';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
+import {NgModule} from '@angular/core';
+import {Http, RequestOptions} from '@angular/http';
+import {AuthHttp, AuthConfig} from 'angular2-jwt';
 
 function authHttpServiceFactory(http: Http, options: RequestOptions) {
   let tokenName = 'access_token';
@@ -10,9 +10,10 @@ function authHttpServiceFactory(http: Http, options: RequestOptions) {
     globalHeaders: [
       {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
       }
-      ],
+    ],
   }), http, options);
 }
 

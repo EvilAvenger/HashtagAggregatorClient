@@ -2,12 +2,12 @@ import {
   Component,
   OnInit, OnDestroy, Input, ViewChild, ElementRef, ViewEncapsulation
 } from '@angular/core';
-import { HashTagService } from '../../../home/shared/hashtag.service';
-import { AppState } from '../../../../app.service';
-import { HashTag } from '../../../shared/models/hashtag';
-import { Subscription } from 'rxjs';
-import { AppConfigService } from '../../../shared/services/config/app-config.service';
-import { MessageService } from '../../../home/shared/message.service';
+import {HashTagService} from '../../../home/shared/hashtag.service';
+import {AppState} from '../../../../app.service';
+import {HashTag} from '../../../shared/models/hashtag';
+import {Subscription} from 'rxjs';
+import {AppConfigService} from '../../../shared/services/config/app-config.service';
+import {MessageService} from '../../../home/shared/message.service';
 
 @Component({
   selector: 'hashtag-selector',
@@ -25,10 +25,9 @@ export class HashtagSelectorComponent implements OnInit, OnDestroy {
   private hashtagSubscription: Subscription;
   private tags: HashTag[];
 
-  constructor(public appState: AppState,
-              private hashTagService: HashTagService,
+  constructor(private hashTagService: HashTagService,
               private messageService: MessageService,
-              private  configService: AppConfigService) {
+              private configService: AppConfigService) {
   }
 
   public ngOnInit(): void {
@@ -45,7 +44,7 @@ export class HashtagSelectorComponent implements OnInit, OnDestroy {
     this.messageService.changeHashTag(this.selectedValue);
   }
 
-  private trackByFn(index, item): number {
+  public trackByFn(index, item): number {
     return item.id;
   }
 

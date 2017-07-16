@@ -31,7 +31,7 @@ export const CONFIG: AppConfig = {
     i18nResourceFileFormat: '.json',
     idTokenName: 'id_token',
     accessTokenName: 'access_token',
-    hashtag: 'somesmallmessagefortest1',
+    hashtag: 'microsoft',
     clientId: 'statisticsapiclient',
     defaultAvatar: 'http://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png'
 };
@@ -48,6 +48,6 @@ if ('prod' === ENV) {
     CONFIG.apiEndpoint = 'http://hashtagaggregator.azurewebsites.net/api/';
     CONFIG.loginApiEndpoint = 'http://silichyexchangeidentity.azurewebsites.net/';
 } else {
-    CONFIG.apiEndpoint = 'http://localhost:5005/api/';
+    CONFIG.apiEndpoint = 'http://localhost:5000/api/';
     CONFIG.loginApiEndpoint = 'http://localhost:5001/';
 }
